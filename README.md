@@ -9,10 +9,15 @@
 | `modelBuilder.Entity<Student>().HasKey(s => s.Id);` | Configure primary key(s). |
 | `modelBuilder.Entity<Student>().HasAlternateKey(s => s.Id);` | Configure alternate key(s). |
 | `modelBuilder.Entity<Student>().HasIndex(s => s.Id);` | Configure index(es). |
+| `modelBuilder.Entity<Student>().HasIndex(s => s.Id).IsUnique();` | Configure unique index(es). |
+| `modelBuilder.Entity<Student>().HasIndex(s => s.Url).HasDatabaseName("Index_Url");` | Configure index name. |
+| `modelBuilder.Entity<Student>().HasIndex(s => s.Url).HasFilter("[Url] IS NOT NULL");` | Configure index filter. |
 | `modelBuilder.Entity<Student>().HasOne(s => s.Grade);` | Configures the One part of the relationship. |
 | `modelBuilder.Entity<Student>().HasMany(s => s.Courses);` | Configures the Many part of the relationship. |
 | `modelBuilder.Entity<Student>().HasComment("Some comment");` | Set text comment in the database. |
 | `modelBuilder.Entity<Student>().Ignore(s => s.LoadedFromDatabase);` | Exclude a property. |
+| `modelBuilder.Entity<Product>().HasCheckConstraint("CK_Prices", "[Price] > [DiscountedPrice]", c => c.HasName("CK_Product_Prices"));` | Configure check constraint. |
+| `modelBuilder.HasSequence<int>("OrderNumbers");`<br/>`modelBuilder.Entity<Order>().Property(o => o.OrderNo).HasDefaultValueSql("NEXT VALUE FOR OrderNumbers");` | Configure a sequence. |
 | `modelBuilder.Entity<Student>().Property(s => s.Name).HasColumnType("varchar(200)");` | Configure a column data type. |
 | `modelBuilder.Entity<Student>().Property(s => s.Name).HasColumnName("Name");` | Configure a column name. |
 | `modelBuilder.Entity<Student>().Property(s => s.Name).HasDefaultValue("StudentX");` | Configure a column default value. |
