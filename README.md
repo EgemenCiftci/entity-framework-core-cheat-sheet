@@ -1,4 +1,4 @@
-# Entity Framework Core Cheat Sheet
+# Entity Framework Core Cheat Sheet (EF Core 6.0)
 
 | Configuration | Details |
 | :--- | :--- |
@@ -21,7 +21,7 @@
 
 | Usage | Details |
 | :--- | :--- |
-| <code>using (var context = new SchoolContext())<br/>{<br/>// Work with context here<br/>}</code> | Create and use a database context. |
+| `using var context = new SchoolContext();`<br/>`// Work with context here` | Create and use a database context. |
 | `var state = context.Entry<Student>(entity).State;` | Get the current state of the entity. |
 | `var students = context.Students.FromSqlRaw("SELECT * FROM dbo.Students").ToList();` | Execute raw SQL. |
 | `var students = context.Students.FromSqlInterpolated($"SELECT * FROM dbo.Students WHERE NAME={name}").ToList();` | Execute raw SQL with interpolated string. |
