@@ -2,7 +2,8 @@
 
 | Configuration | Details |
 | :--- | :--- |
-| `modelBuilder.Entity<Student>().ToTable("StudentInfo");` or `modelBuilder.Entity<Student>().ToTable("StudentInfo", "dbo");` | Map an entity to database table. |
+| `modelBuilder.Entity<Student>().ToTable("StudentInfo");` | Map an entity to database table in the default schema. |
+| `modelBuilder.Entity<Student>().ToTable("StudentInfo", "dbo");` | Map an entity to database table in a specific schema. |
 | `modelBuilder.Entity<Student>().HasKey(s => s.Id);` | Configure primary key(s). |
 | `modelBuilder.Entity<Student>().HasAlternateKey(s => s.Id);` | Configure an alternate key. |
 | `modelBuilder.Entity<Student>().HasIndex(s => s.Id);` | Configure an index. |
