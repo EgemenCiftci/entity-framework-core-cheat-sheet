@@ -18,6 +18,7 @@
 | `modelBuilder.Entity<Student>().Ignore(s => s.LoadedFromDatabase);` | Exclude a property. |
 | `modelBuilder.Entity<Product>().HasCheckConstraint("CK_Prices", "[Price] > [DiscountedPrice]", c => c.HasName("CK_Product_Prices"));` | Configure check constraint. |
 | `modelBuilder.HasSequence<int>("OrderNumbers");`<br/>`modelBuilder.Entity<Order>().Property(o => o.OrderNo).HasDefaultValueSql("NEXT VALUE FOR OrderNumbers");` | Configure a sequence. |
+| `modelBuilder.HasSequence<int>("OrderNumbers", schema: "shared").StartsAt(1000).IncrementsBy(5);` | Configure schema, start value and increment of a sequence. |
 | `modelBuilder.Entity<Student>().Property(s => s.Name).HasColumnType("varchar(200)");` | Configure a column data type. |
 | `modelBuilder.Entity<Student>().Property(s => s.Name).HasColumnName("Name");` | Configure a column name. |
 | `modelBuilder.Entity<Student>().Property(s => s.Name).HasDefaultValue("StudentX");` | Configure a column default value. |
@@ -38,6 +39,8 @@
 | `modelBuilder.Entity<Student>().Property(s => s.Timestamp).IsRowVersion();` | Configure a property to be a timestamp/rowversion. |
 | `modelBuilder.Entity<Student>().Property<DateTime>("LastUpdated");` | Configure a shadow property. |
 | `modelBuilder.Entity<Student>().IndexerProperty<DateTime>("LastUpdated");` | Configure an indexer property. |
+| `modelBuilder.Entity<Blog>().Property(b => b.Url).HasField("_validatedUrl");` | Configure a backing field. |
+| `modelBuilder.Entity<Rider>().Property(e => e.Mount).HasConversion(v => v.ToString(), v => (EquineBeast)Enum.Parse(typeof(EquineBeast), v));` | Configure a value conversion. |
 
 | Usage | Details |
 | :--- | :--- |
