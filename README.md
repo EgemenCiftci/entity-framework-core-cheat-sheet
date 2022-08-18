@@ -1,7 +1,7 @@
 # Entity Framework Core Cheat Sheet
 
 | Configuration | Details |
-| :- | :- |
+| :--- | :--- |
 | `modelBuilder.Entity<Student>().ToTable("StudentInfo");` or `modelBuilder.Entity<Student>().ToTable("StudentInfo", "dbo");` | Map an entity to database table. |
 | `modelBuilder.Entity<Student>().HasKey(s => s.Id);` | Configure primary key(s). |
 | `modelBuilder.Entity<Student>().HasAlternateKey(s => s.Id);` | Configure an alternate key. |
