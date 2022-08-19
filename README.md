@@ -41,6 +41,9 @@
 | `modelBuilder.Entity<Student>().IndexerProperty<DateTime>("LastUpdated");` | Configure an indexer property. |
 | `modelBuilder.Entity<Blog>().Property(b => b.Url).HasField("_validatedUrl");` | Configure a backing field. |
 | `modelBuilder.Entity<Rider>().Property(e => e.Mount).HasConversion(v => v.ToString(), v => (EquineBeast)Enum.Parse(typeof(EquineBeast), v));` | Configure a value conversion. |
+| `modelBuilder.Entity<Blog>().HasData(new Blog { BlogId = 1, Url = "http://sample.com" });` | Configure seed data. |
+| `modelBuilder.Entity<Order>().OwnsOne(p => p.ShippingAddress);` | Define an owned entity. |
+| `modelBuilder.Entity<BlogPostsCount>().HasNoKey();` | Define a keyless entity. |
 
 | Usage | Details |
 | :--- | :--- |
