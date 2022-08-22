@@ -50,7 +50,7 @@
 | `using var context = new SchoolContext();`<br/>`// Work with context here` | Create and use a database context. |
 | `context.Add(new Student { Name = "SomeName" });`<br/>`context.SaveChanges();` | Create. |
 | `var entity = context.Students.FirstOrDefault(f => f.Name == "SomeName");` | Read. |
-| `entity.Surname = "SomeSurname"`<br/>`context.SaveChanges();` | Update. |
+| `entity.Surname = "SomeSurname";`<br/>`context.SaveChanges();` | Update. |
 | `context.Delete(entity);`<br/>`context.SaveChanges();` | Delete. |
 | `context.Students.Where(s => s.FirstName == "Bill").Include(s => s.Grade).FirstOrDefault();` | Eager loading. |
 | `context.Students.Where(s => s.FirstName == "Bill").Include(s => s.Grade).ThenInclude(g => g.Teachers);` | Multi level eager loading. |
