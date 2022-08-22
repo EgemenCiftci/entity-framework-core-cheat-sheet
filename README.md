@@ -52,6 +52,8 @@
 | `var entity = context.Students.FirstOrDefault(f => f.Name == "SomeName");` | Read. |
 | `entity.Surname = "SomeSurname"`<br/>`context.SaveChanges();` | Update. |
 | `context.Delete(entity);`<br/>`context.SaveChanges();` | Delete. |
+| `context.Students.Where(s => s.FirstName == "Bill").Include(s => s.Grade).FirstOrDefault();` | Eager loading. |
+| `context.Students.Where(s => s.FirstName == "Bill").Include(s => s.Grade).ThenInclude(g => g.Teachers);` | Multi level eager loading. |
 | `var state = context.Entry<Student>(entity).State;` | Get the current state of the entity. |
 | `var students = context.Students.FromSqlRaw("SELECT * FROM dbo.Students").ToList();` | Execute raw SQL. |
 | `var students = context.Students.FromSqlInterpolated($"SELECT * FROM dbo.Students WHERE NAME={name}").ToList();` | Execute raw SQL with interpolated string. |
