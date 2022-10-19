@@ -51,7 +51,8 @@
 | `context.Add(new Student { Name = "SomeName" });`<br/>`context.SaveChanges();` | Create. |
 | `var entity = context.Students.FirstOrDefault(f => f.Name == "SomeName");` | Read. |
 | `entity.Surname = "SomeSurname";`<br/>`context.SaveChanges();` | Update. |
-| `context.Delete(entity);`<br/>`context.SaveChanges();` | Delete. |
+| `context.Remove(entity);`<br/>`context.SaveChanges();` | Delete. |
+| `context.RemoveRange(entities);`<br/>`context.SaveChanges();` | Batch delete. |
 | `context.Students.Where(s => s.FirstName == "Bill").Include(s => s.Grade).FirstOrDefault();` | Eager loading. |
 | `context.Students.Where(s => s.FirstName == "Bill").Include(s => s.Grade).ThenInclude(g => g.Teachers);` | Multi level eager loading. |
 | `var state = context.Entry<Student>(entity).State;` | Get the current state of the entity. |
